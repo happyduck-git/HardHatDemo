@@ -1,11 +1,7 @@
 const { ethers } = require("hardhat");
 
 async function main() {
-    const [deployer] = await ethers.getSigners(); // test용 address 불러옴.
-
-    console.log("Deploying contracts with the account:", deployer.address);
-
-    const token = await ethers.deployContract("Token");
+    const token = await ethers.deployContract("PlfDNFT");
 
     console.log("Token address:", await token.getAddress());
 }

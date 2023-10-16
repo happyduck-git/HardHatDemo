@@ -1,6 +1,6 @@
 require("@nomicfoundation/hardhat-toolbox");
 
-const { API_URL, PRIVATE_KEY } = process.env;
+const { API_URL, PRIVATE_KEY, POLYGONSCAN_APIKEY } = process.env;
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   
@@ -12,9 +12,16 @@ module.exports = {
   networks: {
     hardhat: {},
     mumbai: {
-      url: ,
-      accounts: []
+      url: API_URL,
+      accounts: [`0x${PRIVATE_KEY}`]
     },
   },
+
+  etherscan: {
+    apiKey: {
+      polygonMumbai: POLYGONSCAN_APIKEY,
+    },
+  },
+  
 
 };
