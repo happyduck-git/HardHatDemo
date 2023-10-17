@@ -12,14 +12,14 @@ module.exports = {
   networks: {
     hardhat: {},
     mumbai: {
-      url: API_URL,
-      accounts: [`0x${PRIVATE_KEY}`]
+      url: "https://polygon-mumbai.g.alchemy.com/v2/6469h2dhjORtVvYnuaWEjAQib6nzBMAc",
+      accounts: ["b72de0383cee43b854caa69ce50cb14e48e400818577235492ad2a2c2d0aac25"]
     },
   },
 
   etherscan: {
     apiKey: {
-      polygonMumbai: POLYGONSCAN_APIKEY,
+      polygonMumbai: "X4JK7A8QX7J86XIA855RXUXR6ZUWK8U16Z",
     },
   },
   
