@@ -1028,8 +1028,8 @@
       ]
     },
     "/Users/platfarm/Documents/gg-personal/HardHatDemo/contracts/CoffeePOAP.sol": {
-      "lastModificationDate": 1697709524876,
-      "contentHash": "953332ea1ca128ea984071189ed820eb",
+      "lastModificationDate": 1697763599360,
+      "contentHash": "64d9c356781b69a51f6e3a6621435d1d",
       "sourceName": "contracts/CoffeePOAP.sol",
       "solcConfig": {
         "version": "0.8.19",
@@ -1105,6 +1105,46 @@
       ],
       "artifacts": [
         "POAPDEMO"
+      ]
+    },
+    "/Users/platfarm/Documents/gg-personal/HardHatDemo/contracts/Timer.sol": {
+      "lastModificationDate": 1697777657598,
+      "contentHash": "549849e233d9a0cf445f74596bef14d6",
+      "sourceName": "contracts/Timer.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/access/Ownable.sol",
+        "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
+        "@chainlink/contracts/src/v0.8/automation/AutomationCompatible.sol",
+        "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.19"
+      ],
+      "artifacts": [
+        "Timer"
       ]
     }
   }

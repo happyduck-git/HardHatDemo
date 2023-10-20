@@ -14,7 +14,7 @@ contract CoffeePOAP is ERC721Enumerable, ERC721URIStorage, Ownable, AutomationCo
     using Strings for uint256;
 
     string baseURI;
-    uint256 public requiredAmount = 2; //Benefit을 받기 위해 소유하고 있어야 할 쿠폰의 개수.
+    uint256 public requiredAmount = 3; //Benefit을 받기 위해 소유하고 있어야 할 쿠폰의 개수.
     bool public paused = false;
     address public couponAddress; // Coupon contract address.
 
@@ -34,13 +34,11 @@ contract CoffeePOAP is ERC721Enumerable, ERC721URIStorage, Ownable, AutomationCo
         ERC721("POAPToken", "PTK")
     {
         setCouponAddress(_initCouponAddress);
-
-        setBaseURI("https://firebasestorage.googleapis.com/v0/b/platfarmmemebership-test.appspot.com/o/nft%2Fmetadata%2Fpoap_0.json?alt=media");
+        setBaseURI(poapTokenURIs[0]);
 
         for (uint256 i = 0; i < totalSupply(); i++) {
             benefitOwned[ownerOf(i)] = true;
         }
-
     }
 
     function _baseURI() internal view virtual override returns (string memory) {
@@ -141,7 +139,7 @@ contract CoffeePOAP is ERC721Enumerable, ERC721URIStorage, Ownable, AutomationCo
         _burn(tokenId);
     }
     
-    function _burn(uint256 tokenId) internal
+    function _burn(uint256 tokenId) internal 
     override(ERC721, ERC721URIStorage)
     {
         super._burn(tokenId);
@@ -159,5 +157,3 @@ contract CoffeePOAP is ERC721Enumerable, ERC721URIStorage, Ownable, AutomationCo
     }
 
 }
-
-//npx hardhat verify --network mumbai --constructor-args scripts/arguments.js 
