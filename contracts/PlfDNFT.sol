@@ -6,8 +6,9 @@ pragma solidity ^0.8.19;
 
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "hardhat/console.sol";
+import "@openzeppelin/contracts/utils/Multicall.sol";
 
-contract PlfDNFT is ERC721URIStorage {
+contract PlfDNFT is ERC721URIStorage, Multicall {
     uint256 private _nextTokenId;
 
     constructor()
@@ -45,5 +46,13 @@ contract PlfDNFT is ERC721URIStorage {
         returns (bool)
     {
         return super.supportsInterface(interfaceId);
+    }
+
+    function multicall(bytes[] calldata data) external override virtual returns (bytes[] memory results) {
+        results = new bytes[](data.length);
+        for (uint256 i = 0; i < data.length; i++) {
+            results[i] = Address.functionDelegateCall(address(this), data[i]);
+        }
+        return results;
     }
 }

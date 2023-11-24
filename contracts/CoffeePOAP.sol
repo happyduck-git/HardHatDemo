@@ -41,23 +41,27 @@ contract CoffeePOAP is ERC721Enumerable, ERC721URIStorage, Ownable, AutomationCo
         }
     }
 
-    function _baseURI() internal view virtual override returns (string memory) {
+    function _baseURI() internal view virtual override 
+    returns (string memory) {
         return baseURI;
     }
 
-    function tokenURI(uint256 _tokenId) public view virtual override(ERC721, ERC721URIStorage) returns (string memory) {
+    function tokenURI(uint256 _tokenId) public view virtual override(ERC721, ERC721URIStorage)
+    returns (string memory) {
         require(_exists(_tokenId), "ERC721Metadata: URI query for nonexistent token.");
         return _baseURI();
     }
 
-    function totalCouponBalance(address owner) view public returns (uint256) {
+    function totalCouponBalance(address owner) view public
+    returns (uint256) {
         IERC721 token = IERC721(couponAddress);
         uint256 ownerOwnedAmount = token.balanceOf(owner);
         return ownerOwnedAmount;
     }
 
     /* Chainlink Automatization */
-    function checkUpkeep(bytes calldata /*checkData*/) external view override returns (bool upkeepNeeded, bytes memory performData) {
+    function checkUpkeep(bytes calldata /*checkData*/) external view
+    override returns (bool upkeepNeeded, bytes memory performData) {
         
         IERC721Enumerable token = IERC721Enumerable(couponAddress);
         uint256 totalSupply = token.totalSupply();
